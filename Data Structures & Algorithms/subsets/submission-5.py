@@ -1,0 +1,18 @@
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        subs = []
+        def dfs(i):
+            nonlocal res, subs
+            if i>=len(nums):
+                res.append(subs.copy())
+                return
+            dfs(i+1)
+            subs.append(nums[i])
+            dfs(i+1)
+            subs.pop()
+        dfs(0)
+        return res
+        
+
+        
